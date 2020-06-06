@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS17</title>
+    <style type="text/css">
+
+        div {
+            margin:20px auto;width:600px;
+        }
+
+        table {
+            text-align: center;
+            border-collapse: collapse;
+            
+        }
+
+        #btn{
+            background:#f2be37;
+            padding:5px;
+            color:#fff;
+            font-family:Verdana;
+        }
+        h1{
+            margin:30px auto;
+            font-family:Verdana;
+            color:#ccc;
+            font-size:15px; 
+            text-align:center;
+        }
+
+    </style>
+    
+    <script type="text/javascript">
+       function hesapla()
+       {
+           var ks = document.getElementById('ks').value;
+           var sayac = document.getElementById('sayac').value;
+           var bitSayi = document.getElementById('bitSayi').value;      
+           var strTable = '<table border="1" cellpadding="5">';
+           for (var i = 0; i < bitSayi; i++) {
+               strTable += "<tr>";
+               for (var j = 0; j < ks; j++) {
+                    if (sayac <= bitSayi)
+                   {
+                       var say = 0;
+                       for (var s = 2; s < sayac; s++)
+                       {
+                           if (sayac % s == 0)
+                           {
+                               say = 1; break;
+                           }
+                       }
+
+                       if (say == 0)
+                       {
+                           strTable += '<td  style="color:#fff;background:#f2be37;font-weight:bold;font-size:20px">' + sayac + '</td>';
+                       }
+
+                       else
+                           strTable += '<td>' + sayac + '</td>';
+                        sayac++;
+                   }
+               }
+               strTable += "</tr>";
+           }
+           strTable += '</table>';
+
+           
+
+           document.getElementById('model_table').innerHTML = strTable;
+
+
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <form name="formum">
+        <div>
+            <input type="text" id="ks" placeholder="kolon" />
+            <input type="text" id="sayac" placeholder="başlangıç" />
+            <input type="text" id="bitSayi" placeholder="bitiş" />
+            <input type="button" id="btn" onclick="hesapla()" value="hesapla" />
+            <div id="model_table"></div>
+            
+            <br /><br /><br />
+            <h1>GÖRKEM ACAR</h1>
+        </div>
+     
+        
+    </form>
+
+</body>
+</html>
